@@ -32,6 +32,11 @@ class FeedbackPage{
         cy.get(commentField).type(feedbackDetails[3])
     }
 
+    static clickOnButton(buttonText) {
+        const locator = buttonText === 'Send Message' ? sendMsg : clearBtn
+        cy.get(locator).click()
+    }
+
     static feedbackTitleIsVisible() {
         cy.get(feedbackTitle).should('have.text', 'Feedback')
     }
@@ -44,9 +49,19 @@ class FeedbackPage{
         cy.get(commentField).should(visCheck)
     }
 
-    static clickOnClearbtn(){
-        cy.get(clearBtn).should('be.visible')
-        cy.get(clearBtn).click()
+    static verifySubmittedMessage(message) {
+        // While the message in the DOM looks nice & neat, the actual text returned by the element has unexpected line
+        // breaks and additional spaces in the text that are hard to work around, especially between sentences. So
+        // rather than being able to check the full message text directly, split the expected value into separate
+        // sentences and check each appears in the element text
+        cy.get(feedbackMsgSent).invoke('text').then(text => {
+            const expected = message.replaceAll('\n', ' ').split('. ')
+            const actual = text.replaceAll('\n', '')
+            console.log(expected)
+            expected.forEach(sentence => {
+                expect(actual).to.contain(sentence)
+            })
+        })
     }
 
     static emptyFeedbackForm(){

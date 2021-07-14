@@ -16,16 +16,16 @@ Given('I have filled in the feedback form with the following details', (feedback
     FeedbackPage.fillFeedbackForm(feedback)
 })
 
-And ('I click on send button', () => {
-    FeedbackPage.clickOnSendMsg()
+When('I click on the {string} button', (buttonText) => {
+    FeedbackPage.clickOnButton(buttonText)
 })
 
-Then ('I can see the form has been submitted', () => {
-    FeedbackPage.feedbackMsgSentSuccessfully()
+Then('I can see the form has been submitted', () => {
+    FeedbackPage.isFeedbackFormVisible(false);
 })
 
-And ('I click on clear button', () => {
-    FeedbackPage.clickOnClearbtn()
+Then('the following message is displayed', (message) => {
+    FeedbackPage.verifySubmittedMessage(message)
 })
 
 Then ('All fields are cleared and previously entered text deleted', () => {
