@@ -5,6 +5,7 @@ Functions to perform different actions on elements on the FeedbackPage
 
 */
 
+const url = '/feedback.html'
 const nameField = '#name'
 const emailField = '#email'
 const subjectField = '#subject'
