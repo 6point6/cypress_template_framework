@@ -24,6 +24,10 @@ When ('I login using the following credentials', (credentials) => {
     LoginPage.clickOnSubmitBtn()
 })
 
+Then ('I should see my account summary page', () => {
+    AccountPage.acctSummaryTabIsSelected()
+})
+
 Then ('I should see an error message of {string}', (expected) => {
     LoginPage.verifyErrorMsg(expected)
 })

@@ -7,7 +7,7 @@ Feature: login to Application
 Scenario: Successfully login to application
   When I login using the following credentials
       | username | password |
-  Then I should see the homepage
+  Then I should see my account summary page
 
   Scenario Outline: Unsuccessfully login to application using invalid username or password
     When I login using the following credentials
