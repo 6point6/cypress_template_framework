@@ -24,6 +24,6 @@ When ('I login using the following credentials', (credentials) => {
     LoginPage.clickOnSubmitBtn()
 })
 
-Then ('I should see an error message', () => {
-    LoginPage.displayErrorMsg()
+Then ('I should see an error message of {string}', (expected) => {
+    LoginPage.verifyErrorMsg(expected)
 })

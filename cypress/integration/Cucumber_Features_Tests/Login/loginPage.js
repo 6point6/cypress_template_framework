@@ -24,9 +24,12 @@ class LoginPage{
         cy.get(submit_btn).click()
     }
 
-    static displayErrorMsg(){
-        cy.get(errorMsg).should('be.visible')
-        cy.get(errorMsg).contains('Login and/or password are wrong.')
+    static verifyErrorMsg(expected){
+        //Error text includes new line characters and spaces that we need to remove
+        cy.get(errorMsg).invoke('text').then(msg => {
+            const actual = msg.trim()
+            expect(actual).to.eq(expected)
+        })
     }
 }
 

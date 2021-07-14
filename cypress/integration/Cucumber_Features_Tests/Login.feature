@@ -12,7 +12,7 @@ Scenario: Successfully login to application
   Scenario Outline: Unsuccessfully login to application using invalid username or password
     When I login using the following credentials
       | <username> | <password> |
-    Then I should see an error message
+    Then I should see an error message of "Login and/or password are wrong."
     Examples:
       | username | password |
       | england  | password |
