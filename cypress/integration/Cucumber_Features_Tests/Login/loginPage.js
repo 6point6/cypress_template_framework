@@ -1,7 +1,7 @@
 /*
 
 variables to hold the elements
-Functions to perform different actions on elemets on the LoginPage
+Functions to perform different actions on elements on the LoginPage
 
 */
 

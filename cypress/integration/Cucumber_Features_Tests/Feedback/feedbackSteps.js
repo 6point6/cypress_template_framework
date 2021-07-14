@@ -1,5 +1,4 @@
-
-//Classes imported to use fuctions in them
+//Classes imported to use functions in them
 
 import FeedbackPage from './feedbackPage'
 import HomePage from '../Home/homePage'
