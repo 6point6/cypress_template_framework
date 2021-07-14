@@ -5,14 +5,15 @@ import FeedbackPage from './feedbackPage'
 import HomePage from '../Home/homePage'
 import {Given, When, Then, And } from 'cypress-cucumber-preprocessor/steps' //imported to use Gerkins statements
 
-Given ('I navigate to the feedback page', () => {
+Given('I have navigated to the feedback page', () => {
     HomePage.navToHomePage()
     HomePage.clickOnFeedback()
     FeedbackPage.feedbackTitleIsVisible()
+    FeedbackPage.isFeedbackFormVisible(true)
 })
 
-When ('I fill the feedback form', () => {
-    FeedbackPage.fillFeedbackForm()
+Given('I have filled in the feedback form with the following details', (feedback) => {
+    FeedbackPage.fillFeedbackForm(feedback)
 })
 
 And ('I click on send button', () => {

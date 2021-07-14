@@ -1,8 +1,10 @@
 Feature: Fill and send feedback form
 
-Background:
-    Given I navigate to the feedback page
-    When I fill the feedback form
+  Background:
+    Given I have navigated to the feedback page
+    And I have filled in the feedback form with the following details
+      | Name       | Email              | Subject | Body                |
+      | John Smith | jsmith@example.com | Testing | This is just a test |
 
     Scenario: Successfully submit feedback form
         And I click on send button

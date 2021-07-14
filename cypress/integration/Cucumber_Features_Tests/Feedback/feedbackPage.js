@@ -16,24 +16,32 @@ const clearBtn = 'input[name="clear"]'
 
 class FeedbackPage{
 
-    static fillFeedbackForm(){
-        cy.get(nameField).type("England")
-        cy.get(emailField).type("England@test.com")
-        cy.get(subjectField).type("England")
-        cy.get(commentField).type("England")
+    static navToFeedbackPage() {
+        cy.get(url)
+        cy.url().should('eq', Cypress.config().baseUrl + url)
     }
 
-    static clickOnSendMsg(){
-        cy.get(sendMsg).click()
+    static fillFeedbackForm(feedback) {
+        //Check the format of the feedback is correct i.e. name, email, subject, body
+        const expectedFields = ['Name', 'Email', 'Subject', 'Body']
+        expect(feedback.raw()[0]).to.deep.eq(expectedFields)
+        const feedbackDetails = feedback.rows()[0]
+        cy.get(nameField).type(feedbackDetails[0])
+        cy.get(emailField).type(feedbackDetails[1])
+        cy.get(subjectField).type(feedbackDetails[2])
+        cy.get(commentField).type(feedbackDetails[3])
     }
 
-    static feedbackTitleIsVisible(){
-        cy.get(feedbackTitle).should('be.visible')
+    static feedbackTitleIsVisible() {
+        cy.get(feedbackTitle).should('have.text', 'Feedback')
     }
 
-    static feedbackMsgSentSuccessfully(){
-        cy.get(feedbackMsgSent).should('be.visible')
-        cy.get(feedbackMsgSent).contains('Thank you for your comments')
+    static isFeedbackFormVisible(visibility) {
+        const visCheck = visibility ? 'be.visible' : 'not.exist'
+        cy.get(nameField).should(visCheck)
+        cy.get(emailField).should(visCheck)
+        cy.get(subjectField).should(visCheck)
+        cy.get(commentField).should(visCheck)
     }
 
     static clickOnClearbtn(){
