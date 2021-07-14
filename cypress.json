@@ -1,9 +1,9 @@
 {
+    "baseUrl": "http://zero.webappsecurity.com",
     "video": false,
     "defaultCommandTimeout": 10000,
     "pageLoadTimeout": 20000,
-    "ignoreTestFiles": ["*.js","*.md"]
-    
-    
-
+    "testFiles": "**/*.feature",
+    "viewportWidth": 1920,
+    "viewportHeight": 1080
 }
