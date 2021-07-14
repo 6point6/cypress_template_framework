@@ -5,7 +5,7 @@ Functions to perform different actions on elemets on the FeedbackPage
 
 */ 
 
-const url = 'http://zero.webappsecurity.com/index.html'
+const url = '/index.html'
 const signinBtn = '#signin_button'
 const feedback = '#feedback'
 
