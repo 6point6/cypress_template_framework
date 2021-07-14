@@ -6,12 +6,12 @@ import HomePage from '../Home/homePage'
 import AccountPage from '../Account/accountPage'
 import {Given, When, Then, And } from 'cypress-cucumber-preprocessor/steps' //imported to use Gerkins statements
 
-Given ('I navigate to the home page', () => {
+Given ('I have navigated to the home page', () => {
     HomePage.navToHomePage()
 })
 
-When ('I click on signin button', () => {
-    HomePage.clickOnSignInbtn()
+Given (/^(?:I have clicked|I click) on the "(.*)" button$/, (buttonText) => {
+    HomePage.clickOnButton(buttonText)
 })
 
 Then ('I should see the homepage', () => {

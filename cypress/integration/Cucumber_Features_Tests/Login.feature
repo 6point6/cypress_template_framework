@@ -1,8 +1,8 @@
 Feature: login to Application
 
-Background:
-    Given I navigate to the home page
-    When I click on signin button
+  Background:
+    Given I have navigated to the home page
+    And I have clicked on the "Signin" button
 
 Scenario: Successfully login to application
   When I login using the following credentials
