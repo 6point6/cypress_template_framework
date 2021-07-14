@@ -1,9 +1,9 @@
 /*
 
 A variable to hold the element
-A function to perform an action on elemets on the AccountPage
+A function to perform an action on elements on the AccountPage
 
-*/ 
+*/
 
 const url = '/bank/account-summary.html'
 const account_summary_tab = '#account_summary_tab'

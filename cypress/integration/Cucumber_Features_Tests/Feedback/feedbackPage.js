@@ -1,9 +1,9 @@
 /*
 
 variables to hold the elements
-Functions to perform different actions on elemets on the FeedbackPage
+Functions to perform different actions on elements on the FeedbackPage
 
-*/ 
+*/
 
 const nameField = '#name'
 const emailField = '#email'

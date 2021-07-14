@@ -3,7 +3,7 @@
 variables to hold the elements
 Functions to perform different actions on elemets on the FeedbackPage
 
-*/ 
+*/
 
 const url = '/index.html'
 const signinBtn = '#signin_button'

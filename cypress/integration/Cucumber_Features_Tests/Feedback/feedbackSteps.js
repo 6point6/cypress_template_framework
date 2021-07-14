@@ -28,6 +28,6 @@ Then('the following message is displayed', (message) => {
     FeedbackPage.verifySubmittedMessage(message)
 })
 
-Then ('All fields are cleared and previously entered text deleted', () => {
+Then('all fields are cleared and previously entered text deleted', () => {
     FeedbackPage.emptyFeedbackForm()
 })

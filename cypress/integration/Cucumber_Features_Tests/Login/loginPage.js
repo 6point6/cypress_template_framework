@@ -3,7 +3,7 @@
 variables to hold the elements
 Functions to perform different actions on elemets on the LoginPage
 
-*/ 
+*/
 
 const username_field = '#user_login'
 const password_field = '#user_password'

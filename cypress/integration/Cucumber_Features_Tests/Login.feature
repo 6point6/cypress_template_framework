@@ -1,4 +1,4 @@
-Feature: login to Application
+Feature: Login to application
 
   Background:
     Given I have navigated to the home page
