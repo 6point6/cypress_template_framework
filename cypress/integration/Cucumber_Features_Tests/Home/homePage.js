@@ -13,7 +13,7 @@ class HomePage{
 
     static navToHomePage(){
         cy.visit(url)
-        cy.url().should('include', 'zero.webappsecurity')
+        cy.url().should('eq', Cypress.config().baseUrl + url)
     }
 
     static clickOnSignInbtn(){
