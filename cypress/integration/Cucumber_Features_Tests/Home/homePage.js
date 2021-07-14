@@ -16,9 +16,10 @@ class HomePage{
         cy.url().should('eq', Cypress.config().baseUrl + url)
     }
 
-    static clickOnSignInbtn(){
-        cy.get(signinBtn).should('be.visible')
-        cy.get(signinBtn).click()
+    static clickOnButton(buttonText) {
+        let locator
+        if (buttonText === 'Signin') locator = signinBtn
+        cy.get(locator).click()
     }
 
     static clickOnFeedback(){
