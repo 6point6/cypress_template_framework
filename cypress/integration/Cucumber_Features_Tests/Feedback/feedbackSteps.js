@@ -3,7 +3,7 @@
 
 import FeedbackPage from './feedbackPage'
 import HomePage from '../Home/homePage'
-import {Given, When, Then, And } from 'cypress-cucumber-preprocessor/steps' //imported to use Gerkins statements
+import {Given, Then, When} from 'cypress-cucumber-preprocessor/steps' //imported to use Gerkin statements
 
 Given('I have navigated to the feedback page', () => {
     HomePage.navToHomePage()
