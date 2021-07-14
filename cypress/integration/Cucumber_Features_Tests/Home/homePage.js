@@ -9,9 +9,9 @@ const url = '/index.html'
 const signinBtn = '#signin_button'
 const feedback = '#feedback'
 
-class HomePage{
+class HomePage {
 
-    static navToHomePage(){
+    static navToHomePage() {
         cy.visit(url)
         cy.url().should('eq', Cypress.config().baseUrl + url)
     }

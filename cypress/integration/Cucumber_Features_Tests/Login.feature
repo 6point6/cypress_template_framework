@@ -4,10 +4,10 @@ Feature: login to Application
     Given I have navigated to the home page
     And I have clicked on the "Signin" button
 
-Scenario: Successfully login to application
-  When I login using the following credentials
+  Scenario: Successfully login to application
+    When I login using the following credentials
       | username | password |
-  Then I should see my account summary page
+    Then I should see my account summary page
 
   Scenario Outline: Unsuccessfully login to application using invalid username or password
     When I login using the following credentials

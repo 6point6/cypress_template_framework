@@ -14,7 +14,7 @@ const feedbackTitle = '#feedback-title'
 const feedbackMsgSent = '.offset3'
 const clearBtn = 'input[name="clear"]'
 
-class FeedbackPage{
+class FeedbackPage {
 
     static navToFeedbackPage() {
         cy.get(url)
@@ -64,7 +64,7 @@ class FeedbackPage{
         })
     }
 
-    static emptyFeedbackForm(){
+    static emptyFeedbackForm() {
         cy.get(nameField).should('be.empty')
         cy.get(emailField).should('be.empty')
         cy.get(subjectField).should('be.empty')
