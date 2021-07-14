@@ -18,9 +18,9 @@ Then ('I should see the homepage', () => {
     AccountPage.acctSummaryTabIsVisible()
 })
 
-And ('I enter credentials {string} {string} and click on submit', (username,password) => {
-    LoginPage.enterUsername(username)
-    LoginPage.enterPassword(password)
+When ('I login using the following credentials', (credentials) => {
+    LoginPage.enterUsername(credentials.raw()[0][0])
+    LoginPage.enterPassword(credentials.raw()[0][1])
     LoginPage.clickOnSubmitBtn()
 })
 
