@@ -22,7 +22,6 @@ class HomePage{
     }
 
     static clickOnFeedback(){
-        cy.get(feedback).should('be.visible')
         cy.get(feedback).click()
     }
 }
