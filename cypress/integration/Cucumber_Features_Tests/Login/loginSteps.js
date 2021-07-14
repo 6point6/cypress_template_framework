@@ -14,10 +14,6 @@ Given (/^(?:I have clicked|I click) on the "(.*)" button$/, (buttonText) => {
     HomePage.clickOnButton(buttonText)
 })
 
-Then ('I should see the homepage', () => {
-    AccountPage.acctSummaryTabIsVisible()
-})
-
 When ('I login using the following credentials', (credentials) => {
     LoginPage.enterUsername(credentials.raw()[0][0])
     LoginPage.enterPassword(credentials.raw()[0][1])
