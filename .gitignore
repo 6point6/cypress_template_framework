@@ -1,0 +1,13 @@
+# Cypress files
+/cypress/screenshots/
+/cypress/videos/
+
+# NPM files
+/node_modules/
+
+# IntelliJ files
+/.idea/
+*.iml
+
+# MacOS
+.DS_Store

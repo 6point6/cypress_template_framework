@@ -1,18 +1,19 @@
-Feature: login to Application
+Feature: Login to application
 
-Background:
-    Given I navigate to the home page
-    When I click on signin button
+  Background:
+    Given I have navigated to the home page
+    And I have clicked on the "Signin" button
 
-Scenario: Successfully login to application
-   And I enter credentials "username" "password" and click on submit
-   Then I should see the homepage 
+  Scenario: Successfully login to application
+    When I login using the following credentials
+      | username | password |
+    Then I should see my account summary page
 
-Scenario Outline: UnSuccessfully login to application using invalid username or password
-   And I enter credentials "<username>" "<password>" and click on submit
-   Then I should see an error message
-
-   Examples:
-     |username|password|
-     |england |password|
-     |username|england | 
+  Scenario Outline: Unsuccessfully login to application using invalid username or password
+    When I login using the following credentials
+      | <username> | <password> |
+    Then I should see an error message of "Login and/or password are wrong."
+    Examples:
+      | username | password |
+      | england  | password |
+      | username | england  |

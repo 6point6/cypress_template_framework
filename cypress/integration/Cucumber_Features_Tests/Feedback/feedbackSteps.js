@@ -1,32 +1,32 @@
-
-//Classes imported to use fuctions in them
+//Classes imported to use functions in them
 
 import FeedbackPage from './feedbackPage'
 import HomePage from '../Home/homePage'
-import {Given, When, Then, And } from 'cypress-cucumber-preprocessor/steps' //imported to use Gerkins statements
+import {Given, Then, When} from 'cypress-cucumber-preprocessor/steps' //imported to use Gerkin statements
 
-Given ('I navigate to the feedback page', () => {
+Given('I have navigated to the feedback page', () => {
     HomePage.navToHomePage()
     HomePage.clickOnFeedback()
     FeedbackPage.feedbackTitleIsVisible()
+    FeedbackPage.isFeedbackFormVisible(true)
 })
 
-When ('I fill the feedback form', () => {
-    FeedbackPage.fillFeedbackForm()
+Given('I have filled in the feedback form with the following details', (feedback) => {
+    FeedbackPage.fillFeedbackForm(feedback)
 })
 
-And ('I click on send button', () => {
-    FeedbackPage.clickOnSendMsg()
+When('I click on the {string} button', (buttonText) => {
+    FeedbackPage.clickOnButton(buttonText)
 })
 
-Then ('I can see the form has been submitted', () => {
-    FeedbackPage.feedbackMsgSentSuccessfully()
+Then('I can see the form has been submitted', () => {
+    FeedbackPage.isFeedbackFormVisible(false);
 })
 
-And ('I click on clear button', () => {
-    FeedbackPage.clickOnClearbtn()
+Then('the following message is displayed', (message) => {
+    FeedbackPage.verifySubmittedMessage(message)
 })
 
-Then ('All fields are cleared and previously entered text deleted', () => {
+Then('all fields are cleared and previously entered text deleted', () => {
     FeedbackPage.emptyFeedbackForm()
 })

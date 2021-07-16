@@ -1,28 +1,28 @@
 /*
 
 variables to hold the elements
-Functions to perform different actions on elemets on the FeedbackPage
+Functions to perform different actions on elements on the HomePage
 
-*/ 
+*/
 
-const url = 'http://zero.webappsecurity.com/index.html'
+const url = '/index.html'
 const signinBtn = '#signin_button'
 const feedback = '#feedback'
 
-class HomePage{
+class HomePage {
 
-    static navToHomePage(){
+    static navToHomePage() {
         cy.visit(url)
-        cy.url().should('include', 'zero.webappsecurity')
+        cy.url().should('eq', Cypress.config().baseUrl + url)
     }
 
-    static clickOnSignInbtn(){
-        cy.get(signinBtn).should('be.visible')
-        cy.get(signinBtn).click()
+    static clickOnButton(buttonText) {
+        let locator
+        if (buttonText === 'Signin') locator = signinBtn
+        cy.get(locator).click()
     }
 
     static clickOnFeedback(){
-        cy.get(feedback).should('be.visible')
         cy.get(feedback).click()
     }
 }

@@ -1,16 +1,18 @@
 /*
 
 A variable to hold the element
-A function to perform an action on elemets on the AccountPage
+A function to perform an action on elements on the AccountPage
 
-*/ 
+*/
 
-const account_summary_tab = '#signin_button#account_summary_tab'
+const url = '/bank/account-summary.html'
+const account_summary_tab = '#account_summary_tab'
 
-class AccountPage{
+class AccountPage {
 
-    static acctSummaryTabIsVisible(){
-        cy.get('#account_summary_tab').should('be.visible')
+    static acctSummaryTabIsSelected() {
+        cy.url().should('eq', Cypress.config().baseUrl + url)
+        cy.get(account_summary_tab).should('have.class', 'active')
     }
 }
 

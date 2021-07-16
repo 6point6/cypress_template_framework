@@ -1,29 +1,28 @@
-
-//Classes imported to use fuctions in them
+//Classes imported to use functions in them
 
 import LoginPage from './loginPage'
 import HomePage from '../Home/homePage'
 import AccountPage from '../Account/accountPage'
-import {Given, When, Then, And } from 'cypress-cucumber-preprocessor/steps' //imported to use Gerkins statements
+import {Given, Then, When} from 'cypress-cucumber-preprocessor/steps' //imported to use Gerkin statements
 
-Given ('I navigate to the home page', () => {
+Given('I have navigated to the home page', () => {
     HomePage.navToHomePage()
 })
 
-When ('I click on signin button', () => {
-    HomePage.clickOnSignInbtn()
+Given(/^(?:I have clicked|I click) on the "(.*)" button$/, (buttonText) => {
+    HomePage.clickOnButton(buttonText)
 })
 
-Then ('I should see the homepage', () => {
-    AccountPage.acctSummaryTabIsVisible()
-})
-
-And ('I enter credentials {string} {string} and click on submit', (username,password) => {
-    LoginPage.enterUsername(username)
-    LoginPage.enterPassword(password)
+When('I login using the following credentials', (credentials) => {
+    LoginPage.enterUsername(credentials.raw()[0][0])
+    LoginPage.enterPassword(credentials.raw()[0][1])
     LoginPage.clickOnSubmitBtn()
 })
 
-Then ('I should see an error message', () => {
-    LoginPage.displayErrorMsg()
+Then('I should see my account summary page', () => {
+    AccountPage.acctSummaryTabIsSelected()
+})
+
+Then('I should see an error message of {string}', (expected) => {
+    LoginPage.verifyErrorMsg(expected)
 })
